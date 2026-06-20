@@ -1,10 +1,12 @@
 import configuration
 import requests
 import data
+# Отправляет POST-запрос на создание нового заказа
 def post_new_order(order_body):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_ORDERS,
            json=order_body,
            headers=data.headers) 
+# Отправляет GET-запрос на получение заказа по его треку
 def get_order_by_track(track):
     return requests.get(configuration.URL_SERVICE + configuration.GET_ORDER_BY_TRACK,
            params={"t": track})
